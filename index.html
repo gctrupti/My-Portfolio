@@ -6,7 +6,7 @@
     <title>G C Trupti | Portfolio</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    
     <style>
         * {
             margin: 0;
@@ -189,8 +189,11 @@ h3 {
     <canvas id="particleCanvas"></canvas>
 
     <header>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#resume">Resume</a></li>
@@ -383,3 +386,138 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
     </script>
 </body>
 </html>
+<style>
+    /* Existing styles above... */
+
+    /* --- Mobile Responsive Section --- */
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+            gap: 15px;
+        }/* Show hamburger only on mobile */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul.nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 20px 0;
+    z-index: 999;
+  }
+
+  nav ul.nav-links.showing {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+
+
+        header {
+            padding: 10px;
+        }
+
+        #dark-mode-toggle {
+            top: 10px;
+            right: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .typing {
+            font-size: 36px;
+        }
+
+        section {
+            padding: 30px 20px;
+            margin: 10px;
+            height: auto;
+        }
+
+        .container {
+            max-width: 100%;
+        }
+
+        h1, h2, h3 {
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+
+        #linkedin i,
+        #github i {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .typing {
+            font-size: 28px;
+        }
+
+        nav a {
+            font-size: 16px;
+        }
+
+        .btn {
+            font-size: 14px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+    /* .nav-links {
+  display: none;
+  flex-direction: column;
+}
+
+.nav-links.showing {
+  display: flex;
+} */
+
+</style>
+<script>
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = document.querySelector(".nav-links");
+  
+    mobileMenu.addEventListener("click", () => {
+      navLinks.classList.toggle("showing");
+    });
+  </script>
+  
+
+
